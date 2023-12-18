@@ -4,6 +4,7 @@ import { AppContext } from '../context/AppContext';
 const Budget = () => {
     
     const { budget, setBudget } = useContext(AppContext);
+    const {selectedCurrency } = useContext(AppContext);
     const handleKeyDown = (event) =>{
         // Allow only number keys, backspace, and other navigation keys
         if (!/^[0-9\b]+$/.test(event.key) 
@@ -26,18 +27,22 @@ const Budget = () => {
             setBudget(value);
         }
         else
-            alert("The value cannot exceed maximum budget of £"+maxBudget);
+            alert("The value cannot exceed maximum budget of "+{selectedCurrency}+maxBudget);
 
         //setNewBudget(event.target.value);
         
     }
     return (
 <div className='alert alert-secondary'>
-{/* <span>Budget: £Something</span> */}
-<span>Budget: £{budget}</span>
-{/* <input type="number" step="10" value={budget} onKeyDown={handleKeyDown} ></input> */}
-{/* <input type="number" step="10" value={newBudget} onKeyDown={handleKeyDown} ></input> */}
-<input type="number" step="10" value={budget} onKeyDown={handleKeyDown} onChange={handleBudgetChange} ></input>
+    {/* <span>Budget: £Something</span> */}
+    <span>Budget: {selectedCurrency}{budget}</span>
+    {/* <input type="number" step="10" value={budget} onKeyDown={handleKeyDown} ></input> */}
+    {/* <input type="number" step="10" value={newBudget} onKeyDown={handleKeyDown} ></input> */}
+    <br />
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+        <span style={{marginRight: '5px'}}>{selectedCurrency}</span>
+        <input type="number" step="10" value={budget} onKeyDown={handleKeyDown} onChange={handleBudgetChange} ></input>
+    </div>
 </div>
     );
 };

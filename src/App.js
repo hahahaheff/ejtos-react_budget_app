@@ -9,6 +9,7 @@ import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import ExpenseItem from './components/ExpenseItem';
 import AllocationForm from './components/AllocationForm';
+import CurrencyDropdown from './components/CurrencyDropdown';
 
 
 // Add code to import the other components here under
@@ -17,13 +18,7 @@ import AllocationForm from './components/AllocationForm';
 import { AppContext, AppProvider } from './context/AppContext';
 const App = () => {
 
-    // const [budget, setBudget] = useContext(AppContext);
-    // const [state, dispatch] = useContext(AppContext);
-    // const { budget } = state;
-
-    // const setBudget = (newBudget) => {
-    //     dispatch({ type: 'SET_BUDGET', payload: newBudget });
-    // };
+   
 
 
 
@@ -31,7 +26,7 @@ const App = () => {
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
-                <div className='row mt-3'>
+                <div className='row mt-4'>
                 {
                     <div className='col-sm'>
                         <Budget  />
@@ -51,6 +46,13 @@ const App = () => {
                     </div>
                 }
                 {
+                    <div className='col-sm'>
+                        <CurrencyDropdown />
+                    </div>
+                }
+                </div> 
+                <div className='row mt-4'>
+                {
                     /* Add ExpenseList component here */
                     <div className='col-sm'>
                         <ExpenseList />
@@ -62,11 +64,13 @@ const App = () => {
                         <ExpenseItem />
                     </div>
                 }        
+                </div> 
+                <div className='row mt-4'>
                         
 
                 {
                     /* Add AllocationForm component here under */
-                    <div className='col-sm'>
+                    <div className='col mt-3'>
                         <AllocationForm />
                     </div>
                 }
