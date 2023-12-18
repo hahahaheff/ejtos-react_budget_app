@@ -137,7 +137,8 @@ export const AppProvider = (props) => {
                 currency: state.currency,
                 setBudget
                 // totalExpenses: state.totalExpenses,
-                // dispatch
+                
+                , dispatch
             }}
         >
             {props.children}

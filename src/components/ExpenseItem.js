@@ -15,6 +15,7 @@ const ExpenseItem = (props) => {
     const costChange = 10;
     const increaseAllocation = (name) => {
         alert('name ' + name + ' increase');
+        alert(dispatch);
         changeAllocation(name, costChange);
     }
     const decreaseAllocation = (name) => {
