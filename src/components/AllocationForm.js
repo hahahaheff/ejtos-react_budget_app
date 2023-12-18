@@ -8,6 +8,15 @@ const AllocationForm = (props) => {
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
 
+
+
+    // const handleKeyDown = (event) =>{
+    //     // Allow only number keys, backspace, and other navigation keys
+    //     if (!/^[0-9\b]+$/.test(event.key) && !["ArrowLeft", "ArrowRight", "Backspace", "Tab"].includes(event.key)) {
+    //         event.preventDefault();
+    //     }
+    // }
+
     const submitEvent = () => {
 
             if(cost > remaining) {
@@ -65,6 +74,7 @@ const AllocationForm = (props) => {
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
+                        // onKeyDown={(event) => handleKeyDown(event)}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
 
