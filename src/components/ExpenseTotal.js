@@ -3,6 +3,8 @@ import { AppContext } from '../context/AppContext';
 // import {useSelector} from 'react-redux';
 
 const ExpenseTotal = () => {
+
+    // moved to AppContext: 
     // const { expenses } = useContext(AppContext);
     // const totalExpenses = expenses.reduce((total, item) => {
     //     return (total += item.cost);

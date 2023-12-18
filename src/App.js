@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,57 +14,62 @@ import AllocationForm from './components/AllocationForm';
 // Add code to import the other components here under
 
 
-import { AppProvider } from './context/AppContext';
+import { AppContext, AppProvider } from './context/AppContext';
 const App = () => {
+
+    // const [budget, setBudget] = useContext(AppContext);
+    // const [state, dispatch] = useContext(AppContext);
+    // const { budget } = state;
+
+    // const setBudget = (newBudget) => {
+    //     dispatch({ type: 'SET_BUDGET', payload: newBudget });
+    // };
+
+
+
     return (
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
-                    <div className='row mt-3'>
-                        {
-                            /* Add Budget component here */
-                                            // Budget component
-                        <div className='col-sm'>
-                            <Budget />
-                        </div>
-                        }        
-
-                        {
-                            //Remaining component
-                        <div className='col-sm'>
-                            <Remaining />
-                        </div>
-                        }        
-
-                        {
-                         /* Add ExpenseTotal component here */
-                        <div className='col-sm'>
-                            <ExpenseTotal />
-                        </div>
-                        }        
-                       
-                        {
-                            /* Add ExpenseList component here */
-                        <div className='col-sm'>
-                            <ExpenseList />
-                        </div>
-                        }         
-
-                        {
-                            /* Add ExpenseItem component here */
-                        <div className='col-sm'>
-                            <ExpenseItem />
-                        </div>
-                        }        
+                <div className='row mt-3'>
+                {
+                    <div className='col-sm'>
+                        <Budget  />
+                        {/* <Budget budget={budget} setBudget={setBudget} /> */}
+                    </div>
+                }
+                {
+                    //Remaining component
+                    <div className='col-sm'>
+                        <Remaining />                
+                    </div>
+                }
+                {
+                    /* Add ExpenseTotal component here */
+                    <div className='col-sm'>
+                        <ExpenseTotal />
+                    </div>
+                }
+                {
+                    /* Add ExpenseList component here */
+                    <div className='col-sm'>
+                        <ExpenseList />
+                    </div>
+                }
+                {
+                    /* Add ExpenseItem component here */
+                    <div className='col-sm'>
+                        <ExpenseItem />
+                    </div>
+                }        
                         
 
-                        {
-                            /* Add AllocationForm component here under */
-                        <div className='col-sm'>
-                            <AllocationForm />
-                        </div>
-                        }        
-
+                {
+                    /* Add AllocationForm component here under */
+                    <div className='col-sm'>
+                        <AllocationForm />
+                    </div>
+                }
                 </div>
             </div>
         </AppProvider>

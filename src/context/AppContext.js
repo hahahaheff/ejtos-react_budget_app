@@ -2,6 +2,8 @@ import React, { createContext, useReducer } from 'react';
 
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
+    console.log("hey!");
+    // console.log("In AppReducer: " + action.type);
     let budget = 0;
     switch (action.type) {
         case 'ADD_EXPENSE':
@@ -96,16 +98,26 @@ export const AppContext = createContext();
 // 3. Provider component - wraps the components we want to give access to the state
 // Accepts the children, which are the nested(wrapped) components
 export const AppProvider = (props) => {
+
+
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
+
+    // set up budget:
+    // Function to update the budget
+    const setBudget = (budget) => {
+        dispatch({ type: 'SET_BUDGET', payload: budget });
+    };
+
+
     let remaining = 0;
     // let totalExpenses = 0;
     // const [budget, setBudget] = React.useState(state.budget)
-    const updateBudget = (newBudget) => {
-        // setBudget(newBudget);
-        state.budget = newBudget;
-    }
-
+    // const updateBudget = (newBudget) => {
+    //     // setBudget(newBudget);
+    //     state.budget = newBudget;
+    // }
+    state.totalExpenses = 0;
     if (state.expenses) {
             // const totalExpenses = state.expenses.reduce((total, item) => {
             state.totalExpenses = state.expenses.reduce((total, item) => {
@@ -117,12 +129,15 @@ export const AppProvider = (props) => {
     return (
         <AppContext.Provider
             value={{
+                // state, dispatch
                 expenses: state.expenses,
                 budget: state.budget,
                 remaining: remaining,
                 totalExpenses: state.totalExpenses,
-                dispatch,
-                currency: state.currency
+                currency: state.currency,
+                setBudget
+                // totalExpenses: state.totalExpenses,
+                // dispatch
             }}
         >
             {props.children}
