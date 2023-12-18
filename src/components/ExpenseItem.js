@@ -14,13 +14,12 @@ const ExpenseItem = (props) => {
 
     const costChange = 10;
     const increaseAllocation = (name) => {
-        alert('name ' + name + ' increase');
-        alert(dispatch);
+        // alert('name ' + name + ' increase');
+        // alert(dispatch);
         changeAllocation(name, costChange);
     }
     const decreaseAllocation = (name) => {
-        alert('name ' + name + ' decrease');
-
+        // alert('name ' + name + ' decrease');
         changeAllocation(name, -1 * costChange);
     }
 
@@ -35,7 +34,6 @@ const ExpenseItem = (props) => {
             type: 'ADD_EXPENSE',
             payload: expense
         });
-        alert("no error in changeAllocation?");
     }
 
     return (
