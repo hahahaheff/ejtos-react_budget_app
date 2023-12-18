@@ -109,9 +109,9 @@ export const AppProvider = (props) => {
         dispatch({ type: 'SET_BUDGET', payload: budget });
     };
 
-    const setSelectedCurrency = (currency) => {
-        dispatch({ type: 'CHG_CURRENCY', payload: currency});
-    };
+    // const setSelectedCurrency = (currency) => {
+    //     dispatch({ type: 'CHG_CURRENCY', payload: currency});
+    // };
 
 
     let remaining = 0;
@@ -141,7 +141,7 @@ export const AppProvider = (props) => {
                 selectedCurrency: state.currency
                 
                 ,   setBudget
-                ,   setSelectedCurrency
+                // ,   setSelectedCurrency
                 
                 , dispatch
             }}

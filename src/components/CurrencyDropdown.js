@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+
 import './CurrencyDropdown.css'; // make sure your CSS styles are in this file
+import { AppContext } from '../context/AppContext';
 
 // // Create a mapping of currency names to symbols
 // const currencySymbols = {
@@ -24,12 +27,18 @@ const currencyNames = {
   };
 
 const CurrencyDropdown = () => {
-    const [selectedCurrency, setSelectedCurrency] = useState('£');
+    // const [selectedCurrency, setSelectedCurrency] = useState('£');
+    const {selectedCurrency} = useContext(AppContext)
+    const {dispatch} = useContext(AppContext)
 //   const [selectedCurrency, setSelectedCurrency] = useState('£ Pound');
 
     const selectCurrency = (symbol) => {
       // Update the selectedCurrency state with the symbol of the clicked currency
       setSelectedCurrency(symbol);
+    };
+
+    const setSelectedCurrency = (currency) => {
+        dispatch({ type: 'CHG_CURRENCY', payload: currency});
     };
 
     const getCurrencyName = (symbol) => {
